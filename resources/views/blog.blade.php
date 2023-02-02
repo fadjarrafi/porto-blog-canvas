@@ -76,7 +76,6 @@
                         @foreach ($post->topic as $topic)
                             <span class="tag tag-teal">{{ $topic }}</span>
                         @endforeach
-
                         <a href="{{ route('blog.show', $post->slug) }}">
                             <h4>
                                 {{ $post->title }}
@@ -86,14 +85,13 @@
                             {{ $post->summary }}
                         </p>
                         @foreach ($post->tags as $tag)
-                            <p>#{{ $tag }}</p>
+                            #{{ $tag }}
                         @endforeach
                         <div class="user">
-                            <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-                                alt="user" />
+                            <img src="{{ $post->avatar_user }}" alt="user" />
                             <div class="user-info">
                                 <h5>{{ $post->user->name }}</h5>
-                                <small>{{ $post->created_at }}</small>
+                                <small>{{ $post->created_at->format('d-m-Y') }}</small>
                             </div>
                         </div>
                     </div>

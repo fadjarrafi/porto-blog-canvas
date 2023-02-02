@@ -14,6 +14,9 @@
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
+    <!--==================== SYNTAX HIGHLIGHT ====================-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.10/styles/default.min.css">
+
     <title>fadjarrafi.be</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('img/world-wide-web.png') }}">
 </head>
@@ -127,6 +130,19 @@
 
     <!--==================== MAIN JS ====================-->
     <script src="{{ asset('js/main.js') }}"></script>
+
+    <!--==================== SYNTAX HIGHLIGHT JS ====================-->
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@9.15.10/highlight.min.js"></script>
+
+    <script>
+        (function() {
+            hljs.initHighlightingOnLoad();
+            let targets = document.querySelectorAll('pre')
+            targets.forEach(target => {
+                hljs.highlightBlock(target)
+            })
+        })();
+    </script>
 </body>
 
 </html>

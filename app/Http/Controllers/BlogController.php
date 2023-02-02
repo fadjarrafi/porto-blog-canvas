@@ -9,11 +9,12 @@ class BlogController extends Controller
     // view page
     public function index()
     {
-        $posts = \Canvas\Models\Post::published()->with(['topic', 'tags'])->orderByDesc('published_at')->get();
+        $posts = \Canvas\Models\Post::published()->with(['user', 'topic', 'tags'])->orderByDesc('published_at')->get();
 
         $posts->map(function ($post) {
             $post->topic = $post->topic->pluck('name');
             $post->tags = $post->tags->pluck('name');
+            $post->avatar_user = $post->user->pluck('avatar')->first();
 
             return $post;
         });
